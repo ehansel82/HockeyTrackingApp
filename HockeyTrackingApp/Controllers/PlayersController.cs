@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using HockeyTrackingApp.Models;
 using HockeyTrackingApp.Models.DAL;
+using HockeyTrackingApp.WebSockets;
 
 namespace HockeyTrackingApp.Controllers
 {
@@ -53,6 +54,8 @@ namespace HockeyTrackingApp.Controllers
             {
                 db.Players.Add(player);
                 db.SaveChanges();
+                var ws = new NotifyWebSocketHandler();
+                ws.PlayerCreated(player.FirstName + " " + player.LastName);
                 return RedirectToAction("Index");
             }
 
