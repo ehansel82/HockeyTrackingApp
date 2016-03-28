@@ -12,7 +12,12 @@ namespace HockeyTrackingApp
         {
             bundles.Add(new ScriptBundle("~/bundles/js")
                    .Include("~/Scripts/jquery-{version}.js")
+                   .Include("~/Scripts/bootstrap.js")
                    .IncludeDirectory("~/Scripts/app", "*.js"));
+
+            bundles.Add(new StyleBundle("~/bundles/css")
+                   .Include("~/Content/bootstrap-united-theme.css")
+                   .Include("~/Content/site.css"));
         }
     }
 }

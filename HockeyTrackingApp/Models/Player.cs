@@ -11,5 +11,6 @@ namespace HockeyTrackingApp.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Number { get; set; }
+        public Team Team { get; set; }
     }
 }

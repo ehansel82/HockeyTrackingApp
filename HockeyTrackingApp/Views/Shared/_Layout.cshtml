@@ -2,14 +2,31 @@
 
 <html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width" charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8" />
     <title>Hockey Tracking App</title>
+    @Styles.Render("~/bundles/css")
     @Scripts.Render("~/bundles/js")
     
 </head>
 <body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                @Html.ActionLink("Hockey Tracking App", "Index", "Home", null, new { @class = "navbar-brand"})
+            </div>
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Home","Index","Home")</li>
+                <li><a href="#">Players</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </div>
+    </nav>
     <div> 
         @RenderBody()
     </div>
+    <script>
+
+    </script>
 </body>
 </html>

@@ -9,5 +9,6 @@ namespace HockeyTrackingApp.Models.DAL
     public class HockeyAppContext : DbContext
     {
         public DbSet<Player> Players { get; set; }
+        public DbSet<Team> Teams { get; set; }
     }
 }
