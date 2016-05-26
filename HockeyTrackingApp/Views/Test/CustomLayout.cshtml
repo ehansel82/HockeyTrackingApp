@@ -1,0 +1,16 @@
+﻿@*
+    This is an example of how to use a view template (kind of like a master page).
+    Note that setting a Layout here overrides the default layout from viewstart.
+    If you don't want any template, set Layout = null
+*@
+@{
+    ViewBag.Title = "CustomLayoutView";
+    Layout = "~/Views/Shared/_CustomLayout.cshtml";
+}
+
+<div>I am the content of the custom layout view.</div>
+
+@section footer {
+   <footer>This is the footer section.</footer> 
+}
+

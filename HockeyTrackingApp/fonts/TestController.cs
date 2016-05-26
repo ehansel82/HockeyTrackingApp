@@ -23,5 +23,10 @@ namespace HockeyTrackingApp.Controllers
         {
             return $"You typed {HttpUtility.HtmlEncode(param)}";
         }
+
+        public ActionResult CustomLayout()
+        {
+            return View();
+        }
     }
 }
