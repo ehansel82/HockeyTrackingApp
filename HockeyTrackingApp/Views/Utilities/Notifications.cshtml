@@ -1,0 +1,12 @@
+﻿@{
+    Layout = null;
+}
+
+<h2>Notifications</h2>
+<div id="notifications"></div>
+
+<script>
+    $(document).ready(function () {
+        hockeyTrackingApp.notifyWebSocket.register('notifications');
+    });
+</script>
