@@ -1,16 +1,4 @@
-﻿Skip to content
-Personal Open source Business Explore
-Sign upSign inPricingBlogSupport
-This repository
-Search
-Watch 408  Star 7, 166  Fork 5, 198 DefinitelyTyped/ DefinitelyTyped
-Code  Issues 753  Pull requests 493  Wiki  Pulse  Graphs
-Branch: master Find file Copy pathDefinitelyTyped/ jquery / jquery.d.ts
-4cdfbe9  on Apr 17
-@jasekiw jasekiw add post and get overloads for JQueryAjaxSettings.add tests for each…
-70 contributors @johnnyreilly @Diullei @basarat @AndrewGaspar @lijunle @vvakame @hesselink @borisyankov @Bartvds @janb87 @tasoili @derekcicerone @JoshStrobl @DanielRosenwasser @Igorbek @nwolverson @Guuz @malaporte @MizardX @jasekiw @mmiszy @mykohsu @alecocq @michalkutil @JohnKurlak @ksummerlin and others
-RawBlameHistory     3222 lines (2975 sloc)  147 KB
-// Type definitions for jQuery 1.10.x / 2.0.x
+﻿// Type definitions for jQuery 1.10.x / 2.0.x
 // Project: http://jquery.com/
 // Definitions by: Boris Yankov <https://github.com/borisyankov/>, Christian Hoffmeister <https://github.com/choffmeister>, Steve Fenton <https://github.com/Steve-Fenton>, Diullei Gomes <https://github.com/Diullei>, Tass Iliopoulos <https://github.com/tasoili>, Jason Swearingen <https://github.com/jasons-novaleaf>, Sean Hill <https://github.com/seanski>, Guus Goossens <https://github.com/Guuz>, Kelly Summerlin <https://github.com/ksummerlin>, Basarat Ali Syed <https://github.com/basarat>, Nicholas Wolverson <https://github.com/nwolverson>, Derek Cicerone <https://github.com/derekcicerone>, Andrew Gaspar <https://github.com/AndrewGaspar>, James Harrison Fisher <https://github.com/jameshfisher>, Seikichi Kondo <https://github.com/seikichi>, Benjamin Jackman <https://github.com/benjaminjackman>, Poul Sorensen <https://github.com/s093294>, Josh Strobl <https://github.com/JoshStrobl>, John Reilly <https://github.com/johnnyreilly/>, Dick van den Brink <https://github.com/DickvdBrink>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
@@ -3229,5 +3217,3 @@ declare module "jquery" {
 }
 declare var jQuery: JQueryStatic;
 declare var $: JQueryStatic;
-Status API Training Shop Blog About
-© 2016 GitHub, Inc.Terms Privacy Security Contact Help

@@ -20,7 +20,7 @@ namespace HockeyTrackingApp
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            Database.SetInitializer(new DropCreateDatabaseAlways<HockeyAppContext>());
+            Database.SetInitializer(new HockeyAppDbInitializer());
         }
     }
 }

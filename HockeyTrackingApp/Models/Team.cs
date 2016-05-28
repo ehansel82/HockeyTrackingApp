@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -12,6 +13,10 @@ namespace HockeyTrackingApp.Models
         public int ID { get; set; }
         [MaxLength(20)]
         public string Name { get; set; }
+        [ForeignKey("Captain")]
         public int CaptainID { get; set; }
+        public virtual List<Player> Players { get; set; }
+        public virtual Season Season { get; set; }
+        public virtual Team Captain { get; set; }
     }
 }

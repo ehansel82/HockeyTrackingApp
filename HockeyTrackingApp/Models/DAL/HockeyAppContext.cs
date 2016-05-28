@@ -10,5 +10,11 @@ namespace HockeyTrackingApp.Models.DAL
     {
         public DbSet<Player> Players { get; set; }
         public DbSet<Team> Teams { get; set; }
+        public DbSet<Season> Seasons { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+
+        }
     }
 }
