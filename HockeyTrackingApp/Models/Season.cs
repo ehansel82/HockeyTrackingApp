@@ -12,5 +12,6 @@ namespace HockeyTrackingApp.Models
         public short Year { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
+        public virtual List<Team> Teams { get; set; }
     }
 }

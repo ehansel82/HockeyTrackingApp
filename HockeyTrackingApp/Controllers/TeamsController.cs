@@ -19,7 +19,7 @@ namespace HockeyTrackingApp.Controllers
         // GET: Teams
         public async Task<ActionResult> Index()
         {
-            return View(await db.Teams.ToListAsync());
+            return View(await db.Teams.Include("Captain").ToListAsync());
         }
 
         // GET: Teams/Details/5
@@ -48,7 +48,7 @@ namespace HockeyTrackingApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "ID,Name,CaptainID")] Team team)
+        public async Task<ActionResult> Create([Bind(Include = "ID,Name")] Team team)
         {
             if (ModelState.IsValid)
             {
@@ -80,7 +80,7 @@ namespace HockeyTrackingApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "ID,Name,CaptainID")] Team team)
+        public async Task<ActionResult> Edit([Bind(Include = "ID,Name")] Team team)
         {
             if (ModelState.IsValid)
             {
