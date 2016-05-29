@@ -19,7 +19,7 @@ namespace HockeyTrackingApp.Controllers
         // GET: Teams
         public async Task<ActionResult> Index()
         {
-            return View(await db.Teams.Include("Captain").ToListAsync());
+            return View(await db.Teams.ToListAsync());
         }
 
         // GET: Teams/Details/5

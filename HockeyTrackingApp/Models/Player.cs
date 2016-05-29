@@ -13,6 +13,7 @@ namespace HockeyTrackingApp.Models
         public string LastName { get; set; }
         [MaxLength(2)]
         public string Number { get; set; }
+        public bool isCaptain { get; set; }
         public virtual List<Stats> Stats { get; set; }
         public virtual Team Team { get; set; }
     }

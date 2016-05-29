@@ -11,9 +11,9 @@ namespace HockeyTrackingApp.Models.DAL
         protected override void Seed (HockeyAppContext ctx)
         {
             ctx.Seasons.Add(new Season() { Year = 2016, SeasonName = "Spring", StartDate = new DateTime(2016, 1, 1), EndDate = new DateTime(2016, 3, 31) });
-            ctx.Players.Add(new Player() { FirstName = "Mario", LastName = "Lemieux", Number = "66" });
+            ctx.Teams.Add(new Team() { Name = "Pittsburgh Penguins", Season = ctx.Seasons.First()});
             ctx.SaveChanges();
-            ctx.Teams.Add(new Team() { Name = "Pittsburgh Penguins", Season = ctx.Seasons.First(), Captain = ctx.Players.First() });
+            ctx.Players.Add(new Player() { FirstName = "Mario", LastName = "Lemieux", Number = "66" , Team = ctx.Teams.First()});
             ctx.SaveChanges();
         }
     }

@@ -15,6 +15,5 @@ namespace HockeyTrackingApp.Models
         public string Name { get; set; }
         public virtual List<Player> Players { get; set; }
         public virtual Season Season { get; set; }
-        public virtual Player Captain { get; set; }
     }
 }
