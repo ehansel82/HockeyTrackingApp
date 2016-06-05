@@ -3,119 +3,117 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using HockeyTrackingApp.Models;
 using HockeyTrackingApp.Models.DAL;
-using HockeyTrackingApp.WebSockets;
 
 namespace HockeyTrackingApp.Controllers
 {
-    public class PlayersController : Controller
+    public class TeamController : Controller
     {
         private HockeyAppContext db = new HockeyAppContext();
 
-        // GET: Players
-        public ActionResult Index()
+        // GET: Teams
+        public async Task<ActionResult> Index()
         {
-            return View(db.Players.ToList());
+            return View(await db.Teams.ToListAsync());
         }
 
-        // GET: Players/Details/5
-        public ActionResult Details(int? id)
+        // GET: Teams/Details/5
+        public async Task<ActionResult> Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Player player = db.Players.Find(id);
-            if (player == null)
+            Team team = await db.Teams.FindAsync(id);
+            if (team == null)
             {
                 return HttpNotFound();
             }
-            return View(player);
+            return View(team);
         }
 
-        // GET: Players/Create
+        // GET: Teams/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Players/Create
+        // POST: Teams/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,FirstName,LastName,Number")] Player player)
+        public async Task<ActionResult> Create([Bind(Include = "ID,Name")] Team team)
         {
             if (ModelState.IsValid)
             {
-                db.Players.Add(player);
-                db.SaveChanges();
-                var ws = new NotifyWebSocketHandler();
-                ws.PlayerCreated(player.FirstName + " " + player.LastName);
+                db.Teams.Add(team);
+                await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
 
-            return View(player);
+            return View(team);
         }
 
-        // GET: Players/Edit/5
-        public ActionResult Edit(int? id)
+        // GET: Teams/Edit/5
+        public async Task<ActionResult> Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Player player = db.Players.Find(id);
-            if (player == null)
+            Team team = await db.Teams.FindAsync(id);
+            if (team == null)
             {
                 return HttpNotFound();
             }
-            return View(player);
+            return View(team);
         }
 
-        // POST: Players/Edit/5
+        // POST: Teams/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,FirstName,LastName,Number")] Player player)
+        public async Task<ActionResult> Edit([Bind(Include = "ID,Name")] Team team)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(player).State = EntityState.Modified;
-                db.SaveChanges();
+                db.Entry(team).State = EntityState.Modified;
+                await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            return View(player);
+            return View(team);
         }
 
-        // GET: Players/Delete/5
-        public ActionResult Delete(int? id)
+        // GET: Teams/Delete/5
+        public async Task<ActionResult> Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Player player = db.Players.Find(id);
-            if (player == null)
+            Team team = await db.Teams.FindAsync(id);
+            if (team == null)
             {
                 return HttpNotFound();
             }
-            return View(player);
+            return View(team);
         }
 
-        // POST: Players/Delete/5
+        // POST: Teams/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            Player player = db.Players.Find(id);
-            db.Players.Remove(player);
-            db.SaveChanges();
+            Team team = await db.Teams.FindAsync(id);
+            db.Teams.Remove(team);
+            await db.SaveChangesAsync();
             return RedirectToAction("Index");
         }
 
