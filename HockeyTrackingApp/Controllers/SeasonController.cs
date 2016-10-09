@@ -1,6 +1,7 @@
 ﻿using HockeyTrackingApp.Models;
 using HockeyTrackingApp.Models.DAL;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 
 namespace HockeyTrackingApp.Controllers
@@ -19,7 +20,13 @@ namespace HockeyTrackingApp.Controllers
         // GET: Season
         public ActionResult Index()
         {
-            return View();
+            IEnumerable<Season> seasons;
+            using (var ctx = new HockeyAppContext())
+            {
+                seasons = ctx.Seasons.ToList();
+            }
+            return View(seasons);
+
         }
 
         [HttpGet]
